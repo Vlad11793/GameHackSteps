@@ -1,0 +1,40 @@
+1) Attach to a process
+-Loop through process list until encounter process you need
+-Once process located, you can "OPEN IT" by setting process access rights to PROCESS_ALL_ACCESS meaninig we canm Read/Write to process memory 
+Need to open it by using a function called OpenProcess();
+
+ie. HANDLE WINAPI OpenProcess(
+	_In_ DWORD dwDesiredAccess,
+	_In_ BOOL bInheritHandle.
+	_In_ DWORD dwProcessId
+    );
+
+2) Reading and Writing Memory: 
+
+	BOOL WINAPI ReadProcessMemory(
+	_In_ HANDLE hProcess,
+	_In_ LPCVOID lpBaseAddress,
+	_Out_ LPVOID lpBuffer,
+	_In_ SIZE_T nSize,
+	_Out_SIZE_T *lpNumberOfBytesRead
+	
+    );
+
+	BOOL WINAPI WriteProcessMemory(
+	_In_ HANDLE hProcess,
+	_In_ LPCVOID lpBaseAddress,
+	_Out_ LPVOID lpBuffer,
+	_In_ SIZE_T nSize,
+	_Out_SIZE_T *lpNumberOfBytesWritten
+	
+    );
+
+Each parameter returns a BOOL to show if succesful or not.
+
+3) Memory Addresses
+-Addresses for memory (duh)
+-Hex
+eg. 0x123ABC (0x lets compiler know its hex vaule)
+
+
+4) Use cheat engine to extract memory addresses of .exe's
